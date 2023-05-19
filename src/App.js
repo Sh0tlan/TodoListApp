@@ -1,6 +1,7 @@
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import { useState } from "react";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [data, setData] = useState([
@@ -16,9 +17,14 @@ function App() {
     });
   };
   return (
-    <section id="task-form">
-      <TodoForm onAddTask={addTaskHandler}></TodoForm>
-    </section>
+    <>
+      <section id="task-form">
+        <TodoForm onAddTask={addTaskHandler}></TodoForm>
+      </section>
+      <section id="task-form">
+        <TodoList tasks={data} />
+      </section>
+    </>
   );
 }
 
