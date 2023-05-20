@@ -12,8 +12,9 @@ function TodoForm(props) {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     if (enteredValue.trim().length === 0) {
-      return;
+      return null;
     }
+    props.onAddTask(enteredValue);
   };
 
   return (

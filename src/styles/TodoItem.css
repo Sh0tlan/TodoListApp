@@ -1,0 +1,20 @@
+.task-list {
+  display: inline-block;
+  width: 100%;
+  list-style: none;
+  color: white;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  background: #8b005d;
+  padding: 1.25rem;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.task-item .task-item__icons span {
+  cursor: pointer;
+  margin: 0 10px;
+}
