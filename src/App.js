@@ -17,13 +17,36 @@ function App() {
     });
   };
 
+  const deleteItemHandler = (taskId) => {
+    setData((prevData) => {
+      const updatedData = prevData.filter((task) => task.id !== taskId);
+      return updatedData;
+    });
+  };
+
+  const updateTaskHandler = (taskId, newText) => {
+    setData((prevData) => {
+      const updatedData = prevData.map((task) => {
+        if (task.id === taskId) {
+          return { ...task, text: newText };
+        }
+        return task;
+      });
+      return updatedData;
+    });
+  };
+
   return (
     <>
       <section id="task-form">
         <TodoForm onAddTask={addTaskHandler}></TodoForm>
       </section>
       <section id="tasks">
-        <TodoList tasks={data}></TodoList>
+        <TodoList
+          tasks={data}
+          onDelete={deleteItemHandler}
+          onUpdate={updateTaskHandler}
+        ></TodoList>
       </section>
     </>
   );
